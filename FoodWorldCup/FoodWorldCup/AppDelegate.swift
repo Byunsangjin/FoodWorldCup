@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
+import NaverThirdPartyLogin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -35,6 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        instance?.isInAppOauthEnable = true // 네이버 앱으로 인증
+        instance?.isNaverAppOauthEnable = true // 네이버 앱이 없다면 사파리로 인증
+        instance?.isOnlyPortraitSupportedInIphone() // 세로모드만 지원
+        
+        // URL Scheme과 클라이언트 ID, Secret, 앱 이름을 할당
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        instance?.consumerKey = kConsumerKey
+        instance?.consumerSecret = kConsumerSecret
+        instance?.appName = kServiceAppName
         
         return true
     }
@@ -117,6 +129,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                      annotation: [:])
             let facebook = FBSDKApplicationDelegate.sharedInstance()?.application(application, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
             
+            if KOSession.isKakaoAccountLoginCallback(url) {
+                return KOSession.handleOpen(url)
+            }
+            
             return google || facebook!
     }
     
@@ -126,6 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let google =  GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
         
         let facebook = FBSDKApplicationDelegate.sharedInstance()?.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        if KOSession.isKakaoAccountLoginCallback(url) {
+            return KOSession.handleOpen(url)
+        }
         
         return google || facebook!
     }
@@ -146,12 +166,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 // 유저 로그인값 true
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
-                
+
                 // 메인 화면으로 이동
                 guard let mainvc = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainVC") else {
                     return
                 }
-                
+
                 self.window?.rootViewController?.present(mainvc, animated: false)
             } else {
                 print(error?.localizedDescription)

@@ -31,7 +31,8 @@ class MainVC: UIViewController {
         //self.email.text = userDefault.string(forKey: email)
         
         self.email.textAlignment = .center
-        self.email.text = Auth.auth().currentUser?.displayName
+       
+        print("이름 = \(KOUserMe().id)")
         //Auth.auth().currentUser?.delete(completion: nil)
     }
     
@@ -48,6 +49,13 @@ class MainVC: UIViewController {
             try Auth.auth().signOut() // 이메일 로그아웃
             try GIDSignIn.sharedInstance()?.signOut() // 구글 로그아웃
             
+            
+            let koSession = KOSession.shared()
+            if let session = koSession {
+                // KOSessionTask.unlinkTask(completionHandler: nil) 카카오 로그인 연동 해제
+                session.logoutAndClose(completionHandler: nil)
+                print("kakao 로그아웃")
+            }
             
             // 첫 화면으로 돌아가기
             self.dismiss(animated: false, completion: nil)

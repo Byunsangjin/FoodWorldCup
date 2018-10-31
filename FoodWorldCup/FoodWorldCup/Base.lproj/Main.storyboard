@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAq-dr-rqf">
-                                <rect key="frame" x="162" y="567" width="52" height="30"/>
+                                <rect key="frame" x="161" y="275" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxw-Vc-bVy" customClass="GIDSignInButton">
-                                <rect key="frame" x="102" y="275" width="172" height="40"/>
+                                <rect key="frame" x="67" y="370" width="240" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -41,7 +41,7 @@
                                 </connections>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrn-Vu-Hbz">
-                                <rect key="frame" x="77" y="130" width="223" height="30"/>
+                                <rect key="frame" x="77" y="130" width="226" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -55,18 +55,34 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k50-nU-AZt">
-                                <rect key="frame" x="167" y="237" width="46" height="30"/>
+                                <rect key="frame" x="164" y="237" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="sign in"/>
+                                <state key="normal" title="로그인"/>
                                 <connections>
                                     <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JjF-b8-1rD"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z85-IH-KlH" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="102" y="331" width="172" height="40"/>
+                                <rect key="frame" x="69" y="425" width="235" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j9V-Uc-3T1" customClass="KOLoginButton">
+                                <rect key="frame" x="69" y="480" width="235" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="loginKakao:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YbN-zh-l0C"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-QZ-VXe">
+                                <rect key="frame" x="70" y="535" width="235" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="naverloginbtn"/>
+                                <connections>
+                                    <action selector="handleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E8I-Jj-qvB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -75,6 +91,7 @@
                     <connections>
                         <outlet property="email" destination="Zrn-Vu-Hbz" id="98d-Fp-bUm"/>
                         <outlet property="facebookLoginBtn" destination="z85-IH-KlH" id="RUr-ov-Kz2"/>
+                        <outlet property="loginBtn" destination="ZLC-QZ-VXe" id="PCO-kM-wfT"/>
                         <outlet property="password" destination="cx0-4k-Vey" id="2Eb-22-SXe"/>
                     </connections>
                 </viewController>
@@ -141,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="2612" y="-579"/>
         </scene>
-        <!--Register View Controller-->
+        <!--RegisterV-->
         <scene sceneID="mcj-aB-uTc">
             <objects>
-                <viewController storyboardIdentifier="RegisterVC" id="KhG-g4-Gn1" customClass="RegisterViewController" customModule="FoodWorldCup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="KhG-g4-Gn1" customClass="RegisterV" customModule="FoodWorldCup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wQ4-4h-xbB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,4 +284,7 @@
             <point key="canvasLocation" x="199" y="-580"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="naverloginbtn" width="1156" height="250"/>
+    </resources>
 </document>

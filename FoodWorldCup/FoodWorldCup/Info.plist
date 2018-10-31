@@ -24,16 +24,50 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.190335190111-pat0losp0okr2p0akud8e3dig0kptdb9</string>
-                <string>fb273831896807609</string>
+				<string>fb273831896807609</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao74e7bb2447c21d7f12d95d34f59ff6b1</string>
+				<string>kakaokompassauth</string>
+				<string>storykompassauth</string>
+				<string>kakaolink</string>
+				<string>kakaotalk-4.5.0</string>
+				<string>kakaostory-2.9.0</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>naverlogin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>naverlogin</string>
+                <string>naversearchapp</string>
+                <string>naversearchthirdlogin</string>
 			</array>
 		</dict>
 	</array>
-    <key>FacebookAppID</key>
-    <string>273831896807609</string>
-    <key>FacebookDisplayName</key>
-    <string>FoodWorldCup</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>273831896807609</string>
+	<key>FacebookDisplayName</key>
+	<string>FoodWorldCup</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>74e7bb2447c21d7f12d95d34f59ff6b1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -57,14 +91,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
 </dict>
 </plist>
