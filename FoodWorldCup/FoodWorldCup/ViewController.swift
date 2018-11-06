@@ -47,15 +47,17 @@ class ViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDel
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        email.text = ""
-        password.text = ""
+    override func viewWillAppear(_ animated: Bool) {
+        self.email.text = ""
+        self.password.text = ""
+        
+        self.password.resignFirstResponder()
         
         if userDefault.bool(forKey: "usersignedin") {
             guard let mainvc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") else {
                 return
             }
-            present(mainvc, animated: false)
+            self.navigationController?.pushViewController(mainvc, animated: false)
         }
         
     }
@@ -116,7 +118,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDel
         }
         
         // 메인화면으로 이동
-        self.present(mainvc, animated: false)
+        self.navigationController?.pushViewController(mainvc, animated: true)
     }
     
     
@@ -227,8 +229,8 @@ extension ViewController: NaverThirdPartyLoginConnectionDelegate{
         
         let authorization = "\(tokenType) \(accessToken)"
         Alamofire.request("https://openapi.naver.com/v1/nid/me", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization" : authorization]).responseJSON { (response) in
-            guard let result = response.result.value as? [String: Any] else {return}
-            guard let object = result["response"] as? [String: Any] else {return}
+            guard let result = response.result.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
             guard let birthday = object["birthday"] as? String else {return}
             guard let name = object["name"] as? String else {return}
             guard let email = object["email"] as? String else {return}

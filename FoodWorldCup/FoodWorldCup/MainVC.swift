@@ -12,7 +12,6 @@ import GoogleSignIn
 
 class MainVC: UIViewController {
     // outlets
-    @IBOutlet var email: UILabel!
     
     
     
@@ -26,14 +25,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //guard let email = Auth.auth().currentUser?.email else { return }
-        //self.email.text = userDefault.string(forKey: email)
-        
-        self.email.textAlignment = .center
-       
-        print("이름 = \(KOUserMe().id)")
-        //Auth.auth().currentUser?.delete(completion: nil)
+
     }
     
     
@@ -57,11 +49,37 @@ class MainVC: UIViewController {
                 print("kakao 로그아웃")
             }
             
-            // 첫 화면으로 돌아가기
-            self.dismiss(animated: false, completion: nil)
+            // 로그인 화면으로 돌아가기
+            self.navigationController?.popViewController(animated: true)
+            
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
+    
+    
+    
+    // 푸드 월드컵 시작
+    @IBAction func startPressed(_ sender: Any) {
+        guard let selectFoodVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectFoodVC") else {
+            print("SelectFoodVC 실패")
+            return
+        }
+        
+        self.navigationController?.pushViewController(selectFoodVC, animated: true)
+    }
+    
+    
+    
+    // 이전 결과 확인
+    @IBAction func resultPressed(_ sender: Any) {
+        guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") else {
+            print("ResultVC 실패")
+            return
+        }
+        
+        self.navigationController?.pushViewController(resultVC, animated: true)
+    }
+    
     
 }

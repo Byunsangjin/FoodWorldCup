@@ -43,9 +43,6 @@ class RegisterV: UIViewController {
             userDefault.set(name.text!, forKey: email.text!)
             createUser(email: email.text!, password: password.text!)
         }
-        
-        
-        
     }
     
     
@@ -57,8 +54,10 @@ class RegisterV: UIViewController {
                 self.alert("회원가입에 성공 하셨습니다.") {
                     self.navigationController?.popViewController(animated: false)
                 }
+            } else if error?._code == AuthErrorCode.emailAlreadyInUse.rawValue {
+                self.alert("이미 있는 이메일 입니다.")
             } else { // 회원가입 실패
-                self.alert("회원가입 실패 : \(error?.localizedDescription)") {
+                self.alert("회원가입 실패 : \(error!)") {
                     self.navigationController?.popViewController(animated: false)
                 }
             }

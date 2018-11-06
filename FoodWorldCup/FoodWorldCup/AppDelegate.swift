@@ -18,12 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     
     
+    // Variables
+    var window: UIWindow?
+    var viewController : ViewController!
+    
+    
     // Constants
     let userDefault = UserDefaults()
     
     
-    var window: UIWindow?
-    var ViewController : ViewController!
+    
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -163,16 +167,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                        accessToken: authentication.accessToken)
         Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
             if error == nil { // 로그인 성공
+                
                 // 유저 로그인값 true
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
-
-                // 메인 화면으로 이동
+                
                 guard let mainvc = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainVC") else {
+                    print("mainvc error")
                     return
                 }
-
-                self.window?.rootViewController?.present(mainvc, animated: false)
+                
+                //  메인 화면으로 이동
+                let rootViewController = self.window?.rootViewController as! UINavigationController
+                rootViewController.pushViewController(mainvc, animated: false)
             } else {
                 print(error?.localizedDescription)
             }
