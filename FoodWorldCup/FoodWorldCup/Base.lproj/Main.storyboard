@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="br9-pu-7xK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="br9-pu-7xK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -150,13 +150,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-ch-Jhf">
                                 <rect key="frame" x="151" y="617" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="내 주위 검색"/>
+                                <state key="normal" title="내 주위 검색">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="OtO-OE-jUJ" kind="show" id="tEK-ir-TM2"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food1.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPM-mA-Mae">
-                                <rect key="frame" x="16" y="69" width="343" height="250"/>
+                                <rect key="frame" x="16" y="323" width="343" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -164,6 +166,9 @@
                         <viewLayoutGuide key="safeArea" id="s5u-fP-aZE"/>
                     </view>
                     <navigationItem key="navigationItem" title="결과" id="nWo-E9-JvG"/>
+                    <connections>
+                        <outlet property="resultImgView" destination="nPM-mA-Mae" id="TQ8-VX-b2W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxL-1P-Ijb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,12 +242,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ve3-to-IAI">
-                                <rect key="frame" x="16" y="76" width="343" height="260"/>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ve3-to-IAI">
+                                <rect key="frame" x="33" y="151" width="308" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food3.png" translatesAutoresizingMaskIntoConstraints="NO" id="epd-Z1-Fjp">
-                                <rect key="frame" x="16" y="387" width="343" height="260"/>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food3.png" translatesAutoresizingMaskIntoConstraints="NO" id="epd-Z1-Fjp">
+                                <rect key="frame" x="33" y="438" width="308" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydp-Q2-w69">
+                                <rect key="frame" x="273" y="48" width="86" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="그만할래요:(">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopPressed:" destination="76O-32-hU7" eventType="touchUpInside" id="VTO-Lp-LTR"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vs_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="3g1-ly-tL6">
+                                <rect key="frame" x="157" y="376" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -250,6 +270,7 @@
                         <viewLayoutGuide key="safeArea" id="sut-o5-PJy"/>
                     </view>
                     <connections>
+                        <outlet property="bottomImageView" destination="epd-Z1-Fjp" id="fZd-Jg-Avy"/>
                         <outlet property="topImageView" destination="ve3-to-IAI" id="o9b-Dd-Jgf"/>
                     </connections>
                 </viewController>
@@ -323,5 +344,6 @@
         <image name="food2.png" width="404" height="288"/>
         <image name="food3.png" width="403" height="293"/>
         <image name="naverloginbtn" width="1156" height="250"/>
+        <image name="vs_image.png" width="135" height="110"/>
     </resources>
 </document>

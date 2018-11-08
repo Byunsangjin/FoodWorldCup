@@ -29,6 +29,12 @@
 		60C7BACB21907F4C006A151E /* food4.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7BAC321907F4C006A151E /* food4.png */; };
 		60C7BACC21907F4C006A151E /* food7.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7BAC421907F4C006A151E /* food7.png */; };
 		60C7BACD21907F4C006A151E /* food6.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7BAC521907F4C006A151E /* food6.png */; };
+		60FC691F219325FE0088C3AC /* vs_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC691E219325FE0088C3AC /* vs_image.png */; };
+		60FC6921219327E50088C3AC /* backImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC6920219327E50088C3AC /* backImage.png */; };
+		60FC696921933B960088C3AC /* back_semi_final.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC696621933B950088C3AC /* back_semi_final.png */; };
+		60FC696A21933B960088C3AC /* back_final.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC696721933B960088C3AC /* back_final.png */; };
+		60FC696B21933B960088C3AC /* back_quarter_final.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC696821933B960088C3AC /* back_quarter_final.png */; };
+		60FC696D219341770088C3AC /* back_result.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FC696C219341760088C3AC /* back_result.png */; };
 		7D0EAAA07A8CC6122E73B92E /* Pods_FoodWorldCup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D6301E073AB012C9F7E101 /* Pods_FoodWorldCup.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +66,12 @@
 		60C7BAC321907F4C006A151E /* food4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food4.png; sourceTree = "<group>"; };
 		60C7BAC421907F4C006A151E /* food7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food7.png; sourceTree = "<group>"; };
 		60C7BAC521907F4C006A151E /* food6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food6.png; sourceTree = "<group>"; };
+		60FC691E219325FE0088C3AC /* vs_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs_image.png; sourceTree = "<group>"; };
+		60FC6920219327E50088C3AC /* backImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImage.png; sourceTree = "<group>"; };
+		60FC696621933B950088C3AC /* back_semi_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_semi_final.png; sourceTree = "<group>"; };
+		60FC696721933B960088C3AC /* back_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_final.png; sourceTree = "<group>"; };
+		60FC696821933B960088C3AC /* back_quarter_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_quarter_final.png; sourceTree = "<group>"; };
+		60FC696C219341760088C3AC /* back_result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_result.png; sourceTree = "<group>"; };
 		D5FDA1EFD632797C9A84125F /* Pods-FoodWorldCup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodWorldCup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodWorldCup/Pods-FoodWorldCup.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +149,12 @@
 				60C7BAC521907F4C006A151E /* food6.png */,
 				60C7BAC421907F4C006A151E /* food7.png */,
 				60C7BABF21907F4B006A151E /* food8.png */,
+				60FC691E219325FE0088C3AC /* vs_image.png */,
+				60FC6920219327E50088C3AC /* backImage.png */,
+				60FC696721933B960088C3AC /* back_final.png */,
+				60FC696821933B960088C3AC /* back_quarter_final.png */,
+				60FC696621933B950088C3AC /* back_semi_final.png */,
+				60FC696C219341760088C3AC /* back_result.png */,
 			);
 			name = Resources;
 			path = Resources.temp_caseinsensitive_rename.;
@@ -220,8 +238,14 @@
 				60C7BACA21907F4C006A151E /* food1.png in Resources */,
 				60C7BACD21907F4C006A151E /* food6.png in Resources */,
 				60C7BAC821907F4C006A151E /* food5.png in Resources */,
+				60FC696B21933B960088C3AC /* back_quarter_final.png in Resources */,
+				60FC6921219327E50088C3AC /* backImage.png in Resources */,
 				6060604A21835625009BB419 /* Assets.xcassets in Resources */,
+				60FC696D219341770088C3AC /* back_result.png in Resources */,
+				60FC696921933B960088C3AC /* back_semi_final.png in Resources */,
+				60FC696A21933B960088C3AC /* back_final.png in Resources */,
 				6060604521835623009BB419 /* Main.storyboard in Resources */,
+				60FC691F219325FE0088C3AC /* vs_image.png in Resources */,
 				60C7BAC921907F4C006A151E /* food2.png in Resources */,
 				60C7BAC621907F4C006A151E /* food3.png in Resources */,
 			);
