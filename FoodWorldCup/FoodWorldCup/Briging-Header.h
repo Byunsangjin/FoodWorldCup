@@ -10,6 +10,7 @@
 #define Briging_Header_h
 
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import "DaumMap/MTMapView.h"
 
 #endif
 

@@ -74,7 +74,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDel
             } else if error?._code == AuthErrorCode.wrongPassword.rawValue { // 비밀번호가 틀렸을 때
                 self.alert("비밀번호가 틀립니다.")
             } else {
-                self.alert("\(error?.localizedDescription)")
+                self.alert("\(String(describing: error?.localizedDescription))")
             }
         }
     }
