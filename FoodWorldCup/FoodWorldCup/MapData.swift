@@ -14,10 +14,7 @@ import AlamofireObjectMapper
 class MapData {
     // MARK:- Variables
     var MapList = [MapDataVO]()
-    var keyword = "짜장면"
-    var x = "126.811181"
-    var y = "37.463845"
-    var radius = "3000"
+    
     
     
     // MARK:- Constants
@@ -30,7 +27,7 @@ class MapData {
     
     
     // MARK:- Methods
-    func make() {
+    func make(keword keyword: String, lng x: String, lat y: String, radius radius: String) {
         let params: Parameters = [
             "query" : "\(keyword)",
             "x" : "\(x)",
