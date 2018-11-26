@@ -42,6 +42,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDel
         
         facebookLoginBtn.delegate = self
         facebookLoginBtn.readPermissions = ["public_profile", "email"] // 추가 읽기 권한을 요청
+       
+        
         
     }
     
