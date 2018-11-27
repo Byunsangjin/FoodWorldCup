@@ -11,7 +11,6 @@
 		60098C1421AC1A9C0013CB97 /* user_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 60098C1321AC1A9C0013CB97 /* user_marker.png */; };
 		60098C1721AC1BB00013CB97 /* user_marker2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60098C1521AC1BB00013CB97 /* user_marker2.png */; };
 		60098C1821AC1BB00013CB97 /* user_marker3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60098C1621AC1BB00013CB97 /* user_marker3.png */; };
-		60098C1A21AC20C70013CB97 /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098C1921AC20C70013CB97 /* MapData.swift */; };
 		60098C1C21AC20CF0013CB97 /* MapDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */; };
 		60098C1E21AC25A00013CB97 /* MapDataVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098C1D21AC25A00013CB97 /* MapDataVO.swift */; };
 		602E5E1721875B9100E95862 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602E5E1621875B9100E95862 /* Utils.swift */; };
@@ -60,7 +59,6 @@
 		60098C1321AC1A9C0013CB97 /* user_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_marker.png; sourceTree = "<group>"; };
 		60098C1521AC1BB00013CB97 /* user_marker2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_marker2.png; sourceTree = "<group>"; };
 		60098C1621AC1BB00013CB97 /* user_marker3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_marker3.png; sourceTree = "<group>"; };
-		60098C1921AC20C70013CB97 /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 		60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataDTO.swift; sourceTree = "<group>"; };
 		60098C1D21AC25A00013CB97 /* MapDataVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataVO.swift; sourceTree = "<group>"; };
 		602E5E1621875B9100E95862 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				60C7BA3D218B01B0006A151E /* ResultVC.swift */,
 				60C7BA3F218B06A6006A151E /* SelectFoodVC.swift */,
 				60C7BA41218B075A006A151E /* MapVC.swift */,
-				60098C1921AC20C70013CB97 /* MapData.swift */,
 				60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */,
 				60098C1D21AC25A00013CB97 /* MapDataVO.swift */,
 				602E5E1621875B9100E95862 /* Utils.swift */,
@@ -425,7 +422,6 @@
 				60098C1C21AC20CF0013CB97 /* MapDataDTO.swift in Sources */,
 				60C7BA40218B06A6006A151E /* SelectFoodVC.swift in Sources */,
 				60C7BA42218B075A006A151E /* MapVC.swift in Sources */,
-				60098C1A21AC20C70013CB97 /* MapData.swift in Sources */,
 				602E5E1721875B9100E95862 /* Utils.swift in Sources */,
 				60098C1E21AC25A00013CB97 /* MapDataVO.swift in Sources */,
 			);
