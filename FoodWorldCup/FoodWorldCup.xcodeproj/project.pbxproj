@@ -172,11 +172,11 @@
 				60C7BA3D218B01B0006A151E /* ResultVC.swift */,
 				60C7BA3F218B06A6006A151E /* SelectFoodVC.swift */,
 				60C7BA41218B075A006A151E /* MapVC.swift */,
-				602E5E1621875B9100E95862 /* Utils.swift */,
-				60C7BA2E2189E233006A151E /* Briging-Header.h */,
 				60098C1921AC20C70013CB97 /* MapData.swift */,
 				60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */,
 				60098C1D21AC25A00013CB97 /* MapDataVO.swift */,
+				602E5E1621875B9100E95862 /* Utils.swift */,
+				60C7BA2E2189E233006A151E /* Briging-Header.h */,
 			);
 			path = FoodWorldCup;
 			sourceTree = "<group>";

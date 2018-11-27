@@ -8,16 +8,19 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import AlamofireObjectMapper
 
 class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     // MARK:- Variables
     lazy var mapView: MTMapView = MTMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-    var mapData = MapData()
-    //var mapPoint: MTMapPoint?
-    var lat: String?
-    var lng: String?
-    var radius: String?
+    var currentLat: String? // 현재 위치 위도
+    var currentLng: String? // 현재 위치 경도
+    var radius: String? = "2000" // 반경
+    
+    var MapList = [MapDataVO]() // REST API를 이용해 받은 주변 정보
+    
     
     
     // MARK:- Constants
@@ -25,25 +28,16 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     
     
-
+    
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 내비게이션바 띄우기
-        self.navigationController?.isNavigationBarHidden = false
         
         // 위치 사용 인증 요청
         self.requestAuthoriztion()
         
         // 맵뷰 세팅
         self.mapViewSet()
-        
-        
-        
-        
-        
-        
         
         // 뷰에 맵 추가
         self.view.insertSubview(self.mapView, at: 0)
@@ -52,48 +46,29 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        // REST API를 이용해 list 만들기
-        mapData.make(keword: "짜장면", lng: lng!, lat: lat!, radius: "2000")
-        
-        let list = mapData.MapList // 장소 정보 리스트
-        var items = [MTMapPOIItem]() // 마커 배열
-        
-        items.append(poiItem(name: "현재위치", latitude: 37.46224635789486, longitude: 126.81069738421284)) // 현재 위치 마커 추가
-        
-        // 주변 장소 마커 추가
-        for data in list {
-            items.append(poiItem(name: data.name!, latitude: data.y!, longitude: data.x!))
-        }
-
-        self.mapView.addPOIItems(items) // 맵뷰에 마커 추가
-        self.mapView.fitAreaToShowAllPOIItems() // 모든 마커가 보이게 카메라 위치/줌 조정
+        // 주변 장소
+        self.getMapInfo(keword: "짜장면", lng: self.currentLng!, lat: self.currentLat!, radius: self.radius!)
     }
     
     
     
-    // 맵뷰 세팅
+    
+    // 맵뷰 세팅 메소드
     func mapViewSet() {
         self.mapView.delegate = self
         self.mapView.baseMapType = .standard
-        //self.mapView.setMapCenter(MTMapPoint(geoCoord: .init(latitude: 37.46224635789486, longitude: 126.81069738421284)), animated: true)
+        
+        // 현재 위,경도 값 저장
+        self.currentLat = String((locationManager.location?.coordinate.latitude)!)
+        self.currentLng = String((locationManager.location?.coordinate.longitude)!)
         
         // 트랙킹 모드 & 나침반 모드 ON
         self.mapView.currentLocationTrackingMode = .onWithoutHeading
-        
     }
     
     
     
-    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        self.lat = String(location.mapPointGeo().latitude)
-        self.lng = String(location.mapPointGeo().longitude)
-        print("\(lat)=========================")
-        print("\(lng)=========================")
-    }
-    
-    
-    
-    // 위치 사용 인증 요청
+    // 위치 사용 인증 요청 메소드
     func requestAuthoriztion() {
         // 위치 사용 인증 요청
         self.locationManager.requestAlwaysAuthorization()
@@ -109,7 +84,7 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     
     
-    // 마커 생성
+    // 마커 생성 메소드
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {
         let poiItem = MTMapPOIItem()
         poiItem.itemName = name
@@ -131,8 +106,59 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     }
     
     
+    
+    // 주변 장소 정보 받는 메소드
+    func getMapInfo(keword keyword: String, lng x: String, lat y: String, radius radius: String) {
+        let url = "https://dapi.kakao.com/v2/local/search/keyword.json"
+        let headers: HTTPHeaders = [
+            "Authorization" : "KakaoAK 05c120c8362e0943da53898d2bc8a308"
+        ]
+        let params: Parameters = [
+            "query" : "\(keyword)",
+            "x" : "\(x)",
+            "y" : "\(y)",
+            "radius" : "\(radius)"
+        ]
         
+        Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseObject { (response: DataResponse<MapDataDTO>) in
+            let addressDTO = response.result.value
+            
+            if let documents = addressDTO?.document {
+                for document in documents {
+                    let mapVO = MapDataVO()
+                    
+                    // mapVO 객체에 담아 MapList에 추가
+                    mapVO.name = document.name!
+                    mapVO.phone = document.phone!
+                    mapVO.address = document.address!
+                    mapVO.roadAddress = document.roadAddress!
+                    mapVO.x = (Double(document.x!))!
+                    mapVO.y = (Double(document.y!))!
+                    
+                    self.MapList.append(mapVO)
+                }
+            }
+            
+            // 마커 찍기
+            self.showMarker()
+        }
+    }
+    
+    
+    
+    // 받아온 장소정보를 이용해 마커를 띄워준다.
+    func showMarker() {
+        var items = [MTMapPOIItem]() // 마커 배열
+        items.append(self.poiItem(name: "현재위치", latitude: Double(self.currentLat!)!, longitude: Double(self.currentLng!)!)) // 현재 위치 마커 추가
         
+        // 주변 장소 마커 추가
+        for data in self.MapList {
+            items.append(self.poiItem(name: data.name!, latitude: data.y!, longitude: data.x!))
+        }
+        
+        self.mapView.addPOIItems(items) // 맵뷰에 마커 추가
+        self.mapView.fitAreaToShowAllPOIItems() // 모든 마커가 보이게 카메라 위치/줌 조정
+    }
     
     
     

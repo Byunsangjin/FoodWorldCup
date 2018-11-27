@@ -27,6 +27,14 @@ class MainVC: UIViewController {
         super.viewDidLoad()
 
     }
+
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("화면 뜸!!")
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
     
     
@@ -81,5 +89,11 @@ class MainVC: UIViewController {
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
+    
+    
+    // UnWind 세그웨이
+    @IBAction func gotoMainVC(_ sender: UIStoryboardSegue) {
+        
+    }
     
 }

@@ -22,6 +22,9 @@ class ResultVC: UIViewController {
     
     // MARK:- Methods
     override func viewDidLoad() {
+        // 내비게이션 바 없애기
+        self.navigationController?.isNavigationBarHidden = true
+        
         resultImgView.image = UIImage(named: resultImage)
         
         // 배경 이미지 꽉차게 설정
@@ -34,6 +37,14 @@ class ResultVC: UIViewController {
     
     
     // MARK:- Actions
+    @IBAction func searchBtnPressed(_ sender: UIButton) {
+        guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapVC") else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(mapVC, animated: true)
+    }
+    
  
     
 }

@@ -19,7 +19,6 @@ class MapData {
     
     // MARK:- Constants
     let url = "https://dapi.kakao.com/v2/local/search/keyword.json"
-    
     let headers: HTTPHeaders = [
         "Authorization" : "KakaoAK 05c120c8362e0943da53898d2bc8a308"
     ]
@@ -40,13 +39,7 @@ class MapData {
             
             if let documents = addressDTO?.document {
                 for document in documents {
-                    var mapVO = MapDataVO()
-                    
-                    print(document.address!)
-                    print(document.name!)
-                    print("x=\(Double(document.x!)!)")
-                    print("y=\(Double(document.y!)!)")
-                    print("=============")
+                    let mapVO = MapDataVO()
                     
                     // mapVO 객체에 담아 MapList에 추가
                     mapVO.name = document.name!
@@ -55,17 +48,10 @@ class MapData {
                     mapVO.roadAddress = document.roadAddress!
                     mapVO.x = (Double(document.x!))!
                     mapVO.y = (Double(document.y!))!
-                    
+                    print("in for")
                     self.MapList.append(mapVO)
                 }
             }
-            print("MapList : \(self.MapList.count)")
         }
-        
     }
-    
-    
-    
-    
-    
 }
