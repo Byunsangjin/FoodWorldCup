@@ -286,10 +286,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-zY-mwf">
-                                <rect key="frame" x="304" y="39" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-zY-mwf">
+                                <rect key="frame" x="295" y="20" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="홈으로"/>
+                                <state key="normal" image="home_button.png"/>
                                 <connections>
                                     <segue destination="Ogs-F5-oa3" kind="unwind" unwindAction="gotoMainVC:" id="tHN-gC-kqW"/>
                                 </connections>
@@ -345,6 +345,7 @@
         <image name="food1.png" width="400" height="283"/>
         <image name="food2.png" width="404" height="288"/>
         <image name="food3.png" width="403" height="293"/>
+        <image name="home_button.png" width="64" height="64"/>
         <image name="naverloginbtn" width="1156" height="250"/>
         <image name="vs_image.png" width="135" height="110"/>
     </resources>

@@ -20,11 +20,17 @@ class ResultVC: UIViewController {
 
     
     
+    // MARK:- Constants
+    let ud = UserDefaults.standard
+    
+    
+    
     // MARK:- Methods
     override func viewDidLoad() {
         // 내비게이션 바 없애기
         self.navigationController?.isNavigationBarHidden = true
         
+        resultImage = ud.string(forKey: "resultFood")!
         resultImgView.image = UIImage(named: resultImage)
         
         // 배경 이미지 꽉차게 설정
@@ -44,7 +50,5 @@ class ResultVC: UIViewController {
         
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
-    
- 
     
 }

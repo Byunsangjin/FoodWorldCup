@@ -21,11 +21,13 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     var MapList = [MapDataVO]() // REST API를 이용해 받은 주변 정보
     
+    var resultFood: String? // 최종 선택 음식
+    
     
     
     // MARK:- Constants
     let locationManager = CLLocationManager()
-    
+    let ud = UserDefaults.standard
     
     
     
@@ -39,6 +41,9 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
         // 맵뷰 세팅
         self.mapViewSet()
         
+        // 최종 선택 음식 키워드 정의
+        self.resultFood = self.getFoodName()
+        
         // 뷰에 맵 추가
         self.view.insertSubview(self.mapView, at: 0)
     }
@@ -47,7 +52,7 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         // 주변 장소
-        self.getMapInfo(keword: "짜장면", lng: self.currentLng!, lat: self.currentLat!, radius: self.radius!)
+        self.getMapInfo(keword: self.resultFood!, lng: self.currentLng!, lat: self.currentLat!, radius: self.radius!)
     }
     
     
@@ -158,6 +163,34 @@ class MapVC: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
         
         self.mapView.addPOIItems(items) // 맵뷰에 마커 추가
         self.mapView.fitAreaToShowAllPOIItems() // 모든 마커가 보이게 카메라 위치/줌 조정
+    }
+    
+    
+    
+    // 이미지 이름으로 음식 이름 받아 오는 메소드
+    func getFoodName() -> String {
+        var result = ud.string(forKey: "resultFood")
+        
+        switch result {
+        case "food1":
+            return "족발"
+        case "food2":
+            return "치킨"
+        case "food3":
+            return "보쌈"
+        case "food4":
+            return "짜장면"
+        case "food5":
+            return "백반"
+        case "food6":
+            return "돈까스"
+        case "food7":
+            return "햄버거"
+        case "food8":
+            return "냉면"
+        default:
+            return ""
+        }
     }
     
     

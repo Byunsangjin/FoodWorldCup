@@ -24,7 +24,7 @@ class SelectFoodVC: UIViewController {
     
     
     // MARK:- Variables
-    var foodList = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8" ]
+    var foodList = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"]
     var topNum = 6
     var bottomNum = 7
     var tournament: Tournament = Tournament.quarterfinal // 현재 토너먼트가 몇강인지 나타내 주는 변수
@@ -33,12 +33,12 @@ class SelectFoodVC: UIViewController {
     
     // MARK:- Constants
     let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    let ud = UserDefaults.standard
+    
     
     
     // MARK:- Methods
-    override func viewDidLoad()
-    {
-        // super.viewDidLoad()
+    override func viewDidLoad() {
         
         // 내비게이션 바 숨김
         self.navigationController?.isNavigationBarHidden = true
@@ -60,8 +60,9 @@ class SelectFoodVC: UIViewController {
         self.bottomImageView.addGestureRecognizer(tapBottomImageView)
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
+    
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         if (tapGestureRecognizer.view?.tag)! == 1 { // topImageView 선택시
             foodList.remove(at: bottomNum)
         } else { // bottomImageView 선택시
@@ -79,7 +80,6 @@ class SelectFoodVC: UIViewController {
             final()
             break
         }
-        
     }
     
     
@@ -141,7 +141,8 @@ class SelectFoodVC: UIViewController {
             return
         }
         
-        resultvc.resultImage = foodList[0]
+        ud.set(foodList[0], forKey: "resultFood")
+        //resultvc.resultImage = foodList[0]
         
         self.navigationController?.pushViewController(resultvc, animated: false)
     }
@@ -163,5 +164,4 @@ class SelectFoodVC: UIViewController {
     }
     
     
-
 }

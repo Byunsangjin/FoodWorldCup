@@ -13,6 +13,8 @@
 		60098C1821AC1BB00013CB97 /* user_marker3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60098C1621AC1BB00013CB97 /* user_marker3.png */; };
 		60098C1C21AC20CF0013CB97 /* MapDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */; };
 		60098C1E21AC25A00013CB97 /* MapDataVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098C1D21AC25A00013CB97 /* MapDataVO.swift */; };
+		60098CBD21AEB40E0013CB97 /* home_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 60098CBC21AEB40E0013CB97 /* home_button.png */; };
+		60098CBF21AECBBB0013CB97 /* FoodName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60098CBE21AECBBB0013CB97 /* FoodName.swift */; };
 		602E5E1721875B9100E95862 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602E5E1621875B9100E95862 /* Utils.swift */; };
 		6060604021835623009BB419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060603F21835623009BB419 /* AppDelegate.swift */; };
 		6060604221835623009BB419 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060604121835623009BB419 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		60098C1621AC1BB00013CB97 /* user_marker3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_marker3.png; sourceTree = "<group>"; };
 		60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataDTO.swift; sourceTree = "<group>"; };
 		60098C1D21AC25A00013CB97 /* MapDataVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataVO.swift; sourceTree = "<group>"; };
+		60098CBC21AEB40E0013CB97 /* home_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_button.png; sourceTree = "<group>"; };
+		60098CBE21AECBBB0013CB97 /* FoodName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodName.swift; sourceTree = "<group>"; };
 		602E5E1621875B9100E95862 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6060603C21835623009BB419 /* FoodWorldCup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodWorldCup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6060603F21835623009BB419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				60C7BA41218B075A006A151E /* MapVC.swift */,
 				60098C1B21AC20CF0013CB97 /* MapDataDTO.swift */,
 				60098C1D21AC25A00013CB97 /* MapDataVO.swift */,
+				60098CBE21AECBBB0013CB97 /* FoodName.swift */,
 				602E5E1621875B9100E95862 /* Utils.swift */,
 				60C7BA2E2189E233006A151E /* Briging-Header.h */,
 			);
@@ -181,6 +186,7 @@
 		60C7BA2F218A01BB006A151E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60098CBC21AEB40E0013CB97 /* home_button.png */,
 				60C7BAC221907F4B006A151E /* food1.png */,
 				60C7BAC121907F4B006A151E /* food2.png */,
 				60C7BABE21907F4A006A151E /* food3.png */,
@@ -302,6 +308,7 @@
 				60C7BAC821907F4C006A151E /* food5.png in Resources */,
 				60FC696B21933B960088C3AC /* back_quarter_final.png in Resources */,
 				60FC6921219327E50088C3AC /* backImage.png in Resources */,
+				60098CBD21AEB40E0013CB97 /* home_button.png in Resources */,
 				60098C1221AC12BD0013CB97 /* gps_button.png in Resources */,
 				6060604A21835625009BB419 /* Assets.xcassets in Resources */,
 				60FC696D219341770088C3AC /* back_result.png in Resources */,
@@ -423,6 +430,7 @@
 				60C7BA40218B06A6006A151E /* SelectFoodVC.swift in Sources */,
 				60C7BA42218B075A006A151E /* MapVC.swift in Sources */,
 				602E5E1721875B9100E95862 /* Utils.swift in Sources */,
+				60098CBF21AECBBB0013CB97 /* FoodName.swift in Sources */,
 				60098C1E21AC25A00013CB97 /* MapDataVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

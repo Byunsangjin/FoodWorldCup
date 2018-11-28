@@ -51,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         instance?.consumerSecret = kConsumerSecret
         instance?.appName = kServiceAppName
         
+        sleep(1)
+        
         return true
     }
     
