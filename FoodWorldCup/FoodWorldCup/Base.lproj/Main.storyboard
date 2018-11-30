@@ -116,11 +116,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWf-RG-8R5">
-                                <rect key="frame" x="144" y="395" width="86" height="30"/>
+                                <rect key="frame" x="144" y="442" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="이전 결과 확인"/>
                                 <connections>
                                     <action selector="resultPressed:" destination="z1s-IB-vnG" eventType="touchUpInside" id="48q-2s-Afe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrh-7Q-jSc">
+                                <rect key="frame" x="159" y="349" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="랜덤 뽑기"/>
+                                <connections>
+                                    <action selector="randomPressed:" destination="z1s-IB-vnG" eventType="touchUpInside" id="sGI-vS-Eds"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,9 +155,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-ch-Jhf">
-                                <rect key="frame" x="151" y="617" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food1.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPM-mA-Mae">
+                                <rect key="frame" x="16" y="290" width="343" height="283"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-ch-Jhf">
+                                <rect key="frame" x="151" y="603" width="73" height="30"/>
                                 <state key="normal" title="내 주위 검색">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -157,12 +167,17 @@
                                     <action selector="searchBtnPressed:" destination="p6v-Hh-2BB" eventType="touchUpInside" id="3nD-iu-RRn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food1.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPM-mA-Mae">
-                                <rect key="frame" x="16" y="323" width="343" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nPM-mA-Mae" firstAttribute="leading" secondItem="s5u-fP-aZE" secondAttribute="leading" constant="16" id="Cmm-Jj-saI"/>
+                            <constraint firstItem="x9w-ch-Jhf" firstAttribute="leading" secondItem="s5u-fP-aZE" secondAttribute="leading" constant="151" id="OGQ-ym-SLJ"/>
+                            <constraint firstItem="x9w-ch-Jhf" firstAttribute="top" secondItem="nPM-mA-Mae" secondAttribute="bottom" constant="30" id="X9O-W6-I7m"/>
+                            <constraint firstItem="s5u-fP-aZE" firstAttribute="trailing" secondItem="x9w-ch-Jhf" secondAttribute="trailing" constant="151" id="Xq8-LV-8Fe"/>
+                            <constraint firstItem="nPM-mA-Mae" firstAttribute="top" secondItem="s5u-fP-aZE" secondAttribute="top" constant="270" id="aik-m3-Xrt"/>
+                            <constraint firstItem="s5u-fP-aZE" firstAttribute="trailing" secondItem="nPM-mA-Mae" secondAttribute="trailing" constant="16" id="iZY-dA-HkM"/>
+                            <constraint firstItem="s5u-fP-aZE" firstAttribute="bottom" secondItem="x9w-ch-Jhf" secondAttribute="bottom" constant="34" id="yi4-ek-Wvo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="s5u-fP-aZE"/>
                     </view>
                     <navigationItem key="navigationItem" title="결과" id="nWo-E9-JvG"/>
@@ -243,16 +258,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ve3-to-IAI">
-                                <rect key="frame" x="33" y="151" width="308" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="33.188571769480404" y="151" width="308" height="207.99999999999989"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food3.png" translatesAutoresizingMaskIntoConstraints="NO" id="epd-Z1-Fjp">
-                                <rect key="frame" x="33" y="438" width="308" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="33.188571769480404" y="438" width="308" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydp-Q2-w69">
                                 <rect key="frame" x="273" y="48" width="86" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="그만할래요:(">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,8 +277,8 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vs_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="3g1-ly-tL6">
-                                <rect key="frame" x="157" y="376" width="60" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="157.81580865475553" y="376" width="59" height="44.000000000000114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,6 +293,48 @@
             </objects>
             <point key="canvasLocation" x="3840.8000000000002" y="-580.65967016491754"/>
         </scene>
+        <!--Random FoodVC-->
+        <scene sceneID="uXV-mb-DB8">
+            <objects>
+                <viewController storyboardIdentifier="RandomFoodVC" id="DRx-BP-ZOm" customClass="RandomFoodVC" customModule="FoodWorldCup" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JbO-za-DcM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59x-dq-JWx">
+                                <rect key="frame" x="95" y="546" width="185" height="30"/>
+                                <state key="normal" title="STOP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopBtnPressed:" destination="DRx-BP-ZOm" eventType="touchUpInside" id="bpz-Qp-1JC"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pU-Vb-ieh">
+                                <rect key="frame" x="16" y="155" width="343" height="334"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="59x-dq-JWx" firstAttribute="leading" secondItem="WJT-yK-PKa" secondAttribute="leading" constant="95" id="713-90-UYJ"/>
+                            <constraint firstItem="2pU-Vb-ieh" firstAttribute="top" secondItem="WJT-yK-PKa" secondAttribute="top" constant="135" id="Ghq-XX-FXj"/>
+                            <constraint firstItem="WJT-yK-PKa" firstAttribute="trailing" secondItem="59x-dq-JWx" secondAttribute="trailing" constant="95" id="Hgv-MZ-vqk"/>
+                            <constraint firstItem="WJT-yK-PKa" firstAttribute="trailing" secondItem="2pU-Vb-ieh" secondAttribute="trailing" constant="16" id="PZi-cg-VXk"/>
+                            <constraint firstItem="2pU-Vb-ieh" firstAttribute="leading" secondItem="WJT-yK-PKa" secondAttribute="leading" constant="16" id="gbX-93-jBs"/>
+                            <constraint firstItem="59x-dq-JWx" firstAttribute="top" secondItem="2pU-Vb-ieh" secondAttribute="bottom" constant="57" id="jEG-CP-m9O"/>
+                            <constraint firstItem="WJT-yK-PKa" firstAttribute="bottom" secondItem="59x-dq-JWx" secondAttribute="bottom" constant="91" id="suw-gY-0of"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WJT-yK-PKa"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="2pU-Vb-ieh" id="QE8-rU-dkT"/>
+                        <outlet property="stopBtn" destination="59x-dq-JWx" id="Url-I3-eIJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHM-dn-nXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4660" y="-581.55922038980509"/>
+        </scene>
         <!--MapVC-->
         <scene sceneID="P62-DW-GY9">
             <objects>
@@ -286,9 +343,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-zY-mwf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-zY-mwf">
                                 <rect key="frame" x="295" y="20" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="home_button.png"/>
                                 <connections>
                                     <segue destination="Ogs-F5-oa3" kind="unwind" unwindAction="gotoMainVC:" id="tHN-gC-kqW"/>
@@ -296,6 +352,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qtb-zc-o2y" firstAttribute="trailing" secondItem="2cb-zY-mwf" secondAttribute="trailing" constant="16" id="bYG-y9-Vg4"/>
+                            <constraint firstItem="2cb-zY-mwf" firstAttribute="top" secondItem="Qtb-zc-o2y" secondAttribute="top" id="dF8-QY-UkB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qtb-zc-o2y"/>
                     </view>
                 </viewController>

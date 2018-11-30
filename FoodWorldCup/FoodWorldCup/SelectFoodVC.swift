@@ -43,50 +43,40 @@ class SelectFoodVC: UIViewController {
         // 내비게이션 바 숨김
         self.navigationController?.isNavigationBarHidden = true
         
+        // 음식 String List 섞기
+        self.foodList.shuffle()
+        
+        // 뷰의 화면 세팅
+        self.viewSet()
+    }
+    
+    
+    
+    
+    
+    
+    // 뷰 화면 설정
+    func viewSet() {
         // 배경 이미지 설정
-        backgroundImage.image = UIImage(named: "back_quarter_final")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        backGroundSetting()
         
         // 이미지 뷰 초기화
         drawImage()
         
-        let tapTopImageView = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        self.topImageView.isUserInteractionEnabled = true
-        self.topImageView.addGestureRecognizer(tapTopImageView)
-        
-        let tapBottomImageView = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        self.bottomImageView.isUserInteractionEnabled = true
-        self.bottomImageView.addGestureRecognizer(tapBottomImageView)
+        // 이미지 탭 허용 설정
+        imageTapSet()
     }
     
     
-    
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        if (tapGestureRecognizer.view?.tag)! == 1 { // topImageView 선택시
-            foodList.remove(at: bottomNum)
-        } else { // bottomImageView 선택시
-            foodList.remove(at: topNum)
-        }
-        
-        switch tournament {
-        case .quarterfinal:
-            quarterfinal()
-            break
-        case .semifinal:
-            semifinal()
-            break
-        case .final:
-            final()
-            break
-        }
-    }
     
     
     // 8강
     func quarterfinal() {
         if topNum == 0 {
             self.tournament = .semifinal
+            
+            // 음식 String List 섞기
+            self.foodList.shuffle()
             
             // 4강 시작
             bottomNum = foodList.count - 1
@@ -112,6 +102,9 @@ class SelectFoodVC: UIViewController {
     func semifinal() {
         if topNum == 0 {
             self.tournament = .final
+            
+            // 음식 String List 섞기
+            self.foodList.shuffle()
             
             // 결승 시작
             bottomNum = foodList.count - 1
@@ -148,12 +141,57 @@ class SelectFoodVC: UIViewController {
     }
     
     
-    // 음식 이미지 그리기
+    
+    // 배경 이미지 설정 메소드
+    func backGroundSetting() {
+        self.backgroundImage.image = UIImage(named: "back_quarter_final")
+        self.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+    }
+    
+    
+    
+    // 음식 이미지 그리기 메소드
     func drawImage() {
         topImageView.image = UIImage(named: foodList[topNum])
         bottomImageView.image = UIImage(named: foodList[bottomNum])
     }
     
+    
+    
+    // 이미지 탭 허용 설정 메소드
+    func imageTapSet() {
+        let tapTopImageView = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        self.topImageView.isUserInteractionEnabled = true
+        self.topImageView.addGestureRecognizer(tapTopImageView)
+        
+        let tapBottomImageView = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        self.bottomImageView.isUserInteractionEnabled = true
+        self.bottomImageView.addGestureRecognizer(tapBottomImageView)
+    }
+    
+    
+    
+    // 이미지를 탭했을 때 동작하는 메소드
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        if (tapGestureRecognizer.view?.tag)! == 1 { // topImageView 선택시
+            foodList.remove(at: bottomNum)
+        } else { // bottomImageView 선택시
+            foodList.remove(at: topNum)
+        }
+        
+        switch tournament {
+        case .quarterfinal:
+            quarterfinal()
+            break
+        case .semifinal:
+            semifinal()
+            break
+        case .final:
+            final()
+            break
+        }
+    }
     
     
     

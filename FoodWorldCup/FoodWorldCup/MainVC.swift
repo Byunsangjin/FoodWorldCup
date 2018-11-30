@@ -79,6 +79,18 @@ class MainVC: UIViewController {
     
     
     
+    // 랜덤 뽑기 클릭시
+    @IBAction func randomPressed(_ sender: Any) {
+        guard let randomVC = self.storyboard?.instantiateViewController(withIdentifier: "RandomFoodVC") else {
+            print("RandomFoodVC 실패")
+            return
+        }
+        
+        self.navigationController?.pushViewController(randomVC, animated: true)
+    }
+    
+    
+    
     // 이전 결과 확인
     @IBAction func resultPressed(_ sender: Any) {
         guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") else {
@@ -88,6 +100,11 @@ class MainVC: UIViewController {
         
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
+    
+    
+    
+    
+    
     
     
     
